@@ -1,10 +1,10 @@
-from random import choice
 from datetime import datetime, timezone
+from random import choice
 
 DEFAULT_CHARACTERS = 'acdefghijkmnpqrtuvwxyzACEFGHJKLMNPQRTUVWXYZ2346789-_'
 
-def ruid(length=10) -> str:
-    if length < 8:
+def ruid(length=10, fully_random=False) -> str:
+    if length < 8 or fully_random:
         return ''.join(choice(DEFAULT_CHARACTERS) for _ in range(length))
 
     prefix_len = length - 6
